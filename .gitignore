@@ -1,4 +1,10 @@
-.idea/
-/target
+cargo-registry 
+target 
+build 
+.idea 
+*.iml 
+.venv 
+.cache 
+.DS_Store
 **/*.rs.bk
 Cargo.lock
