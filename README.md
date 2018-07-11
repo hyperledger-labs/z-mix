@@ -49,6 +49,6 @@ Data that satisfies the non-cryptographic part of the Request.
 
 Holders don't handle cryptographic material or messaging with Verifiers directly, but instead use software and hardware components to do this called agents.
 Cryptographic secrets are stored in wallets. Crypto engine is the software/hardware library that performs the ZK computations. Public registry
-is any reliable source that stores the public material that both Holder and Verifier. Sovrin is a public permissioned ledger designed for this purpose.
+is any reliable source that stores the public material that both Holder and Verifier trust. Sovrin is a public permissioned ledger designed for this purpose.
 
 ![flow](docs/flow-diagram.png)
