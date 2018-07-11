@@ -56,11 +56,11 @@ extern crate z_mix;
 use z_mix::zkl::{Parser, ProofSpecBuilder, WitnessBuilder};
 
 fn main() {
-    let proof_spec_builder = ProofSpecBuilder::new();
+    let mut proof_spec_builder = ProofSpecBuilder::new();
 
     // Add proof spec data
 
-    let witness_builder = WitnessBuilder::new();
+    let mut witness_builder = WitnessBuilder::new();
 
     // Add witness data
 
