@@ -7,6 +7,7 @@ z-mix facilitates
 
 # Scope of Lab
 The goal of z-mix is to become a part of Hyperledger crypto-lib, and eventually be adopted by Hyperledger projects. Multiple existing Hyperledger projects require Zero-Knowledge proofs, e.g., Fabric and Indy. The goal of this library is to provide a single flexible and secure implementation to construct such proofs.
+z-mix is a C callable library but there are also convenience wrappers for various programming languages.
 
 # Initial Committers
 * Manu Drijvers (manudrijvers)
@@ -38,3 +39,42 @@ The **ZKL-ProofSpec** defines the statement to be proven and contains all public
 The **ZKL-Witness** contains the secrets required to compute a proof \[e.g. secret keys, all attribute values, the credentials involved, the randomness used to compute a pseudonym].
 
 The **ZKL Proof** is the data that satisfies the statement to be proven.
+
+### Examples
+
+z-mix is written in Rust. z-mix can be included into other Rust projects by adding the following to the Cargo.toml:
+
+```toml
+z_mix = { version = "0.1", git = "https://github.com/hyperledger-labs/z-mix.git" }
+```
+
+An example how to use in your rust project
+
+```rust
+extern crate z_mix;
+
+use z_mix::zkl::{Parser, ProofSpecBuilder, WitnessBuilder};
+
+fn main() {
+    let mut proof_spec_builder = ProofSpecBuilder::new();
+
+    // Add proof spec data
+
+    let mut witness_builder = WitnessBuilder::new();
+
+    // Add witness data
+
+    let proof_spec = proof_spec_builder.finish();
+    let witness = witness_builder.finish();
+
+    match Parser::parse(&proof_spec, &witness) {
+        Ok(proof) => {
+            match proof.verify(&proof_spec) {
+                Ok(v) => println!("Proof result - {}", v),
+                Err(pe) => panic!("Proof::verify encountered an error - {:?}", pe)
+            }
+        },
+        Err(e) => panic!("Parser::parse encountered an error - {:?}", e)
+    };
+}
+```
