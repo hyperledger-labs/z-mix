@@ -7,6 +7,7 @@ z-mix facilitates
 
 # Scope of Lab
 The goal of z-mix is to become a part of Hyperledger crypto-lib, and eventually be adopted by Hyperledger projects. Multiple existing Hyperledger projects require Zero-Knowledge proofs, e.g., Fabric and Indy. The goal of this library is to provide a single flexible and secure implementation to construct such proofs.
+z-mix is a C callable library but there are also convenience wrappers for various programming languages.
 
 # Initial Committers
 * Manu Drijvers (manudrijvers)
