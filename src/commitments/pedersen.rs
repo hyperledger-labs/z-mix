@@ -25,3 +25,13 @@ impl<Group> CommitmentScheme for PedersenCommitment {
     }
 }
 */
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn setup_one_element() {
+        let result = PedersenCommitment::setup(1);
+        assert_eq!(result.len(), 1);
+    }
+}
