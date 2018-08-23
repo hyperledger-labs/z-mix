@@ -5,11 +5,11 @@ use std::collections::HashMap;
 use self::amcl::bls381::ecp::ECP;
 use self::amcl::bls381::ecp2::ECP2;
 use self::amcl::bls381::mpin::{SHA256, hash_id};
-use self::amcl::bls381::big::{NLEN, MODBYTES};
+use self::amcl::bls381::big::MODBYTES;
 
 use hash_functions::{HashFunction, HashError};
 
-struct BLS12_381_SHA256 {
+pub struct BLS12_381_SHA256 {
     msg: Vec<u8>,
     digest: [u8; MODBYTES]
 }
